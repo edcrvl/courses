@@ -4,11 +4,11 @@
 %}
 
 %%
-[0-9]+ {printf("El usuario escribió un número");}
+[0-9]+ {printf("Es un numero");}
 %%
 int main()
 {
-	printf("Escribe una palabra, el programa determinará si es un numero");
+	printf("Ingrese una palabra: ");
 	yylex();
 	return 0;
 }
