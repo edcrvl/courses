@@ -5,7 +5,7 @@ _______________________________
 En la siguiente imagen se presenta el modelo relacional de la base de datos.
 Es indispensable que primero construyas la base de datos, las tablas e insertes datos de prueba.
 
-![Modelo relacional salesdb](databases/salesdb.png)
+![Modelo relacional salesdb](salesdb.png)
 
 Nota. Sigue el ejemplo para preparar tu entregable.
 
