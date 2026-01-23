@@ -24,7 +24,7 @@ Ejemplo
 
 OPCIÓN 1. Imagen con el resultado de la consulta. 
 
-![Resultado de consulta 1](databases/tabla1.png)
+![Resultado de consulta 1](tabla1.png)
 
 OPCIÓN 2. Tabla con el resultado de la consulta.
 
