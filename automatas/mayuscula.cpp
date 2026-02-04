@@ -1,14 +1,12 @@
 #include <iostream>
 #include <string>
-#include <cctype>   // Para isupper
-#include <algorithm>// Para all_of
-
+#include <cctype>  
+#include <algorithm>
 #include <regex>
 
 bool esTodoMayusculas(const std::string& cadena) {
-    if (cadena.empty()) return false; // Una cadena vacía no es mayúsculas
+    if (cadena.empty()) return false;
 
-    // Verifica si todos los caracteres son mayúsculas
     return std::all_of(cadena.begin(), cadena.end(), [](unsigned char c) {
         return std::isupper(c);
     });
@@ -28,15 +26,15 @@ int main() {
     std::getline(std::cin, texto);
 
     if (esTodoMayusculas(texto)) {
-        std::cout << "La cadena esta en mayusculas." << std::endl;
+        std::cout << "La cadena esta en mayúsculas." << std::endl;
     } else {
-        std::cout << "La cadena contiene minusculas o caracteres no alfabeticos." << std::endl;
+        std::cout << "La cadena contiene minúsculas o caracteres no alfabéticos." << std::endl;
     }
 
     if (esMayusculaReg(texto)) {
-        std::cout << "Mayúsculas." << std::endl;
+        std::cout << "La cadena tiene sólo mayúsculas." << std::endl;
     } else {
-        std::cout << "No mayúsculas." << std::endl;
+        std::cout << "La cadena no tiene sólo mayúsculas." << std::endl;
     }
     return 0;
 }
