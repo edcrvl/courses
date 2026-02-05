@@ -2,6 +2,7 @@
 _______________________________
 
 📌 Nivel: Intermedio
+
 📌 Enfoque: JOIN, GROUP BY, HAVING, funciones de agregación 
 
 
@@ -146,10 +147,17 @@ Consultas
 
 
 📘 Qué se refuerza en nivel intermedio
+
 ✔ Agregaciones (SUM, COUNT, AVG, MAX)
+
 ✔ Agrupación de datos
+
 ✔ Filtros con HAVING
+
 ✔ JOIN entre múltiples tablas
+
 ✔ Análisis de datos reales
+
 Llegaste al final 🚀
+
 
