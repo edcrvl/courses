@@ -1,4 +1,4 @@
-# *Distribución de datos*
+## *Distribución de datos*
 _______________________________
 
 📌 Fragmentación vertical
@@ -6,7 +6,7 @@ _______________________________
 
 
 **Instrucciones**. Para estos ejercicios se utiliza la base de datos *salesbd* para construir los fragmentos que se solicitan. 
-Utiliza el [respaldo de la base de datos](salesdb_bk.sql) para construir los fragmentos.
+Utiliza el [respaldo de la base de datos](https://github.com/edcrvl/courses/edit/main/databases/salesBD_bk.sql) para construir los fragmentos.
 
 La práctica se basa en el modelo relacional de la base de datos base de datos *salesbd* que se prenta en el siguiente diagrama. 
 
@@ -148,4 +148,5 @@ Fragmentos horizontales
 ✔ Consultas tipo examen universitario / técnico
 
 Dime qué quieres, cómo lo quieres y lo armamos 💪 🚀
+
 
