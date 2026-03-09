@@ -294,7 +294,7 @@ To create the database tables, you must use the following commands:
 From the command line, we can extract information from a table in a MySQL database and store the content in a plain text file. 
 In the following example, data is extracted from the customer table in the salesDB database and saved in the customer.txt file.
 ```
-mysql -u root -p salesDB -e "select * from customer" > customer.txt
+    $ mysql -u root -p salesDB -e "select * from customer" > customer.txt
 ```
 
 Another option is to download the table content into a file in CSV format 
