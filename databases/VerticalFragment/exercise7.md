@@ -147,9 +147,9 @@ erDiagram
     address ||--o{ supplier : "used in"
 ```
 
-## Vertical fragment: _customerDB_
+# Vertical fragment: _customerDB_
 
-1. 🧠 Build a vertical fragment that contains all customer data.
+## 1. 🧠 Build a vertical fragment that contains all customer data.
 
 ### ✅ Relational model of vertical fragment customerDB.
 
@@ -214,10 +214,12 @@ erDiagram
 ### ✅ SQL scripts to create a fragment customerDB in MySQL.
 
 To create the database **customerDB** use following command:
+
 ```sql
     mysql> CREATE DATABASE customerDB;
 ```
 To create the database tables, you must use the following commands:
+
 ```sql
     mysql>
             CREATE TABLE address (
@@ -289,6 +291,15 @@ To create the database tables, you must use the following commands:
 
 ### 📌 Scripts for downloading data from the **salesBD** database in CSV format.
 
+From the command line, we can extract information from a table in a MySQL database and store the content in a plain text file. 
+In the following example, data is extracted from the customer table in the salesDB database and saved in the customer.txt file.
+```
+mysql -u root -p salesDB -e "select * from customer" > customer.txt
+```
+
+Another option is to download the table content into a file in CSV format 
+with the _SELECT INTO OUTFILE_ statement as follows:
+
 ```sql
    mysql> 
           SELECT customerID, name, phone, email
@@ -310,87 +321,70 @@ To create the database tables, you must use the following commands:
             LINES TERMINATED BY '\n';
 ```
 
+# Vertical fragment: _supplierDB_
 
-2. 🧠 *Fragmento supplierDB*. Construye un fragmento vertical que contenga todos los datos de supplier, pero sólo los de supplier.
+## 2. 🧠 Build a vertical fragment that contains all supplier data.
 
-**Esquema del fragmento** ✅
+### ✅ Relational model of vertical fragment supplierDB.
 
-	TODO esquema
+```mermaid
+erDiagram
+    address {
+        int addressID PK
+        string street
+        string city
+        string state
+        string zipCode
+        string country
+    }
 
-**Script para crear fragmento** ✅
+    supplier {
+        int supplierID PK
+        string name
+        string contactName
+        string email
+        string phone
+        int addressID FK
+    }
 
-TODO script SQL
+    product {
+        int productID PK
+        int supplierID FK
+        string name
+        string description
+        decimal price
+        int stock
+    }
 
-**Scripts para descargar los datos de la base de datos salesbd.** 📌
+    supplier ||--o{ product : "supplies"
+    address ||--o{ supplier : "used in"
+```
 
-TODO script SQL
+### 📌 Scripts for downloading data from the **salesBD** database in CSV format.
 
-**Scripts para cargar los datos al fragmento 1.** 📌
+Extract the data from the supplier table using the _SELECT INTO OUTFILE_ command from the MySQL server, as follows:
 
-TODO script SQL
+```sql
+   mysql> 
+          SELECT supplierID, name, contactName, email, phone, addressID
+            FROM supplier
+            INTO OUTFILE '/tmp/supplier.csv'
+            FIELDS TERMINATED BY ','
+            ENCLOSED BY '"'
+            LINES TERMINATED BY '\n';
+```
 
-Fragmentos horizontales
-------------------------
-3. 🧠 *Fragmento zona1DB*. Construye un fragmento horizontal que contenga todos los clientes con dirección en los estados CDMX e Hidalgo. Incluye toda la información de los clientes y su órdenes de compra.
+### 📌 Scripts for loading data from the CSV format files to database customerDB.
 
-**Esquema del fragmento** ✅
+```sql
+   mysql>
+          LOAD DATA LOCAL INFILE '/tmp/supplier.csv' 
+            INTO TABLE supplier
+            FIELDS TERMINATED BY ','
+            ENCLOSED BY '"'
+            LINES TERMINATED BY '\n';
+```
 
-	TODO esquema
-
-**Script para crear fragmento** ✅
-
-TODO script SQL
-
-**Scripts para descargar los datos de la base de datos salesbd.** 📌
-
-TODO script SQL
-
-**Scripts para cargar los datos al fragmento 1.** 📌
-
-TODO script SQL
-
-
-4. 🧠 *Fragmento zona2DB*. Construye un fragmento horizontal que contenga todos los clientes con dirección en los estados estado3 y estado4. Incluye toda la información de los clientes y su órdenes de compra.
-
-**Esquema del fragmento** ✅
-
-	TODO esquema
-
-**Script para crear fragmento** ✅
-
-TODO script SQL
-
-**Scripts para descargar los datos de la base de datos salesbd.** 📌
-
-TODO script SQL
-
-**Scripts para cargar los datos al fragmento 1.** 📌
-
-TODO script SQL
-
-5. 🧠 *Fragmento zona3DB*. Construye un fragmento horizontal que contenga todos los clientes con dirección en los estados estado5 y estado6. Incluye toda la información de los clientes y su órdenes de compra.
-
-**Esquema del fragmento** ✅
-
-	TODO esquema
-
-**Script para crear fragmento** ✅
-
-TODO script SQL
-
-**Scripts para descargar los datos de la base de datos salesbd.** 📌
-
-TODO script SQL
-
-**Scripts para cargar los datos al fragmento 1.** 📌
-
-TODO script SQL
-📘 ¿Qué se refuerza?
-✔ Lectura de esquemas
-✔ Lógica de negocio
-✔ Subconsultas
-✔ Consultas tipo examen universitario / técnico
-
-Dime qué quieres, cómo lo quieres y lo armamos 💪 🚀
+🚀 Tell me what you want, how you want it, and we'll put it together. 💪 
 
 
