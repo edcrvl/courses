@@ -302,7 +302,7 @@ with the _SELECT INTO OUTFILE_ statement as follows:
 
 ```sql
    mysql> 
-          SELECT customerID, name, phone, email
+          SELECT customerID, firstName, lastName, phone, email
             FROM customer
             INTO OUTFILE '/tmp/customer.csv'
             FIELDS TERMINATED BY ','
@@ -320,6 +320,9 @@ with the _SELECT INTO OUTFILE_ statement as follows:
             ENCLOSED BY '"'
             LINES TERMINATED BY '\n';
 ```
+
+**TODO**  To verify the result of the ETL process, run the script to obtain statistics for the custormerDB fragment.
+**Statistics table**
 
 # Vertical fragment: _supplierDB_
 
@@ -384,6 +387,9 @@ Extract the data from the supplier table using the _SELECT INTO OUTFILE_ command
             ENCLOSED BY '"'
             LINES TERMINATED BY '\n';
 ```
+
+**TODO**  To verify the result of the ETL process, run the script to obtain statistics for the custormerDB fragment.
+**Statistics table**
 
 🚀 Tell me what you want, how you want it, and we'll put it together. 💪 
 
