@@ -1,4 +1,4 @@
-# Distribución de datos
+# Data distribution
 _______________________________
 
 📌 Vertical Fragmentation
@@ -234,9 +234,8 @@ To create the database tables, you must use the following commands:
             
             CREATE TABLE customer (
                 customerId  INT             NOT NULL AUTO_INCREMENT,
-                firstName   VARCHAR(100)    NOT NULL,
-                lastName    VARCHAR(100)    NOT NULL,
-                email       VARCHAR(255)    NOT NULL,
+                name        VARCHAR(100)    NOT NULL,
+                email       VARCHAR(100)    NOT NULL,
                 phone       VARCHAR(20),
                 CONSTRAINT pk_customer PRIMARY KEY (customerId),
                 CONSTRAINT uq_customer_email UNIQUE (email)
@@ -302,12 +301,12 @@ with the _SELECT INTO OUTFILE_ statement as follows:
 
 ```sql
    mysql> 
-          SELECT customerID, firstName, lastName, phone, email
+          SELECT customerID, name, email, phone 
             FROM customer
-            INTO OUTFILE '/tmp/customer.csv'
+            INTO OUTFILE '/home/eduardo/sqlData/customer.csv'
             FIELDS TERMINATED BY ','
             ENCLOSED BY '"'
-            LINES TERMINATED BY '\n';
+            LINES TERMINATED '\n';
 ```
 
 ### 📌 Scripts for loading data from the CSV format files to database customerDB.
