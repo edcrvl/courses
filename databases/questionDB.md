@@ -11,7 +11,6 @@ These lab is based on the following relational model.
 
 ```mermaid
 erDiagram
-    erDiagram
     USER ||--o{ QUESTION : "publishing"
     USER ||--o{ ANSWER : "publishing"
     USER ||--o{ VOTE : "give"
