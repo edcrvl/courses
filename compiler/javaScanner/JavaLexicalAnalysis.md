@@ -86,7 +86,7 @@
 6. **Separadores**
 7. **Whitespace** — descartar al final
 
-> **Principio de maximal munch:** el analizdor léxico siempre consume el lexema más largo posible. Así `integer` es un `IDENTIFIER`, no `KEYWORD("int") + IDENTIFIER("eger")`.
+> **Principio de maximal munch:** el analizador léxico siempre consume el lexema más largo posible. Así `integer` es un `IDENTIFIER`, no `KEYWORD("int") + IDENTIFIER("eger")`.
 
 ---
 
@@ -111,7 +111,7 @@ Sin `\b`, el patrón `int` coincidiría dentro de `integer`, tokenizándolo inco
 
 ### Implementación en Java
 
-La implementación del analizador léxico se basa en el siguiente diagrma de clases:
+La implementación del analizador léxico se basa en el siguiente diagrama de clases:
 
 ```mermaid
 classDiagram
@@ -223,7 +223,9 @@ public class KeywordsIdentifiers {
 
 ### ⚡ Actividad (5 min)
 
-Modifica variable `source` para incluir: `integer`, `forLoop`, `returnValue`. Verifica que el lexer los clasifique como `IDENTIFIER`. 
+Modifica la variable `source` para incluir los lexemas: `integer`, `forLoop`, `returnValue`. 
+
+Verifica que el lexer los clasifique como `IDENTIFIER`. 
 
 ¿Por qué ocurre eso? Explica el rol de `\b`.
 
